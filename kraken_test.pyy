@@ -1,0 +1,61 @@
+import ccxt
+import time
+from datetime import datetime, timezone
+timestamp = datetime.now(timezone.utc).isoformat()
+import pandas as pd
+
+# Initialize Kraken API
+exchange = ccxt.kraken({
+    'rateLimit': 1000,
+    'enableRateLimit': True
+})
+
+# Define trading pairs and post-breakout tracking intervals
+trading_pairs = ["BTC/USDT", "ETH/USDT", "SOL/USDT", "DOT/USDT"]
+tracking_intervals = [300, 900, 3600]  # 5 min, 15 min, 1 hour
+
+# Store breakouts and post-breakout price data
+breakout_data = []
+
+def fetch_latest_price(symbol):
+    """Fetches the latest price for a given trading pair."""
+    ticker = exchange.fetch_ticker(symbol)
+    return ticker['last']
+
+def log_breakout(symbol, breakout_price):
+    """Logs the breakout event and schedules price tracking."""
+    timestamp = datetime.now(timezone.utc).isoformat()
+    breakout_data.append({
+        "timestamp": timestamp,
+        "symbol": symbol,
+        "breakout_price": breakout_price,
+        "post_prices": {interval: None for interval in tracking_intervals}
+    })
+    print(f"[{timestamp}] Breakout detected: {symbol} at {breakout_price}")
+
+def track_post_breakout_prices():
+    """Fetches post-breakout prices at predefined intervals."""
+    for record in breakout_data:
+        for interval in tracking_intervals:
+            time.sleep(interval)
+            post_price = fetch_latest_price(record["symbol"])
+            record["post_prices"][interval] = post_price
+            print(f"[{datetime.now(timezone.utc).isoformat()}] {interval // 60} min post-breakout price for {record['symbol']}: {post_price}")
+
+def save_to_csv():
+    """Saves breakout and post-breakout data to CSV."""
+    df = pd.DataFrame(breakout_data)
+    df.to_csv("~/Documents/breakout_log.csv", index=False)
+    print("Breakout data saved to CSV.")
+
+# Simulated breakout detection loop (replace with actual detection logic)
+for pair in trading_pairs:
+    breakout_price = fetch_latest_price(pair)
+    log_breakout(pair, breakout_price)
+    time.sleep(2)  # Simulating time between detections
+
+# Track post-breakout prices in the background
+track_post_breakout_prices()
+
+# Save results
+save_to_csv()

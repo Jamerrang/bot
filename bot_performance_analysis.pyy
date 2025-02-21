@@ -1,0 +1,78 @@
+import os
+import pandas as pd
+
+# ✅ Define the correct breakout log file path
+LOG_FILE = os.path.expanduser("~/Documents/breakout_log.csv")
+
+# ✅ Ensure the file exists
+if not os.path.exists(LOG_FILE):
+    print("❌ No breakout log file found. Run the bot first!")
+    exit()
+
+# ✅ Correct column headers based on your log file format
+columns = ["timestamp", "symbol", "entry_price", "target_price", "stop_loss"]
+
+# ✅ Read CSV with explicit column names
+df = pd.read_csv(
+    LOG_FILE,
+    names=columns,  
+    header=None,  
+    parse_dates=["timestamp"],  
+    dtype={"symbol": str, "entry_price": float, "target_price": float, "stop_loss": float}
+)
+
+# ✅ Drop rows where timestamp parsing failed
+df.dropna(subset=["timestamp"], inplace=True)
+
+# ✅ Ensure timestamps are in UTC
+df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce", utc=True)
+
+# ✅ Debugging: Show timestamp range
+print(f"🕒 Newest breakout timestamp: {df['timestamp'].max()}")
+print(f"🕒 Oldest breakout timestamp: {df['timestamp'].min()}")
+
+# ✅ Sort data from newest to oldest
+df = df.sort_values(by="timestamp", ascending=False)
+
+# ✅ Verify sorting works correctly
+print(f"✅ Sorted: First timestamp in dataset: {df.iloc[0]['timestamp']}")
+print(f"✅ Sorted: Last timestamp in dataset: {df.iloc[-1]['timestamp']}")
+
+# ✅ Calculate breakout success rate
+df["previous_high"] = df.groupby("symbol")["price"].shift(1)
+df["success"] = df["price"] > df["previous_high"]
+success_rate = df["success"].mean() * 100
+
+# ✅ Summary Statistics
+df["hit_target"] = df["entry_price"] <= df["target_price"]
+df["hit_stop"] = df["entry_price"] >= df["stop_loss"]
+
+df["profit"] = df["hit_target"] * (df["target_price"] - df["entry_price"]) - df["hit_stop"] * (df["entry_price"] - df["stop_loss"])
+
+total_profit = df["profit"].sum()
+win_rate = df["hit_target"].mean() * 100  # % of trades that hit target price
+
+# ✅ Print updated statistics
+print("\n📊 **Breakout Performance & Profitability Summary**")
+print(f"🔹 Total Breakouts: {len(df)}")
+print(f"✅ Winning Trades: {df['hit_target'].sum()} ({win_rate:.2f}%)")
+print(f"❌ Stopped Out Trades: {df['hit_stop'].sum()}")
+print(f"💰 Estimated Total Profit: {total_profit:.4f} (assumes 1 unit per trade)")
+
+# ✅ Display best-performing assets
+best_assets = df[df["success"] == True]["symbol"].value_counts().head(5)
+if not best_assets.empty:
+    print("\n🚀 Best Performing Assets:")
+    print(best_assets)
+
+# ✅ Display worst-performing assets
+worst_assets = df[df["success"] == False]["symbol"].value_counts().head(5)
+if not worst_assets.empty:
+    print("\n⚠️ Worst Performing Assets:")
+    print(worst_assets)
+
+# ✅ Save Analysis to CSV
+output_file = os.path.expanduser("~/Documents/breakout_analysis.csv")
+df.to_csv(output_file, index=False)
+print(f"\n📂 Analysis saved to '{output_file}'")
+

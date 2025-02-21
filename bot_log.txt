@@ -1,0 +1,36 @@
+✅ Kraken API is working!
+{'info': {'error': [], 'result': {}}, 'timestamp': None, 'datetime': None, 'free': {}, 'used': {}, 'total': {}}
+Symbols fetched from Kraken: ['BTC/USD', 'ETH/USD', 'SOL/USD', 'ADA/USD', 'XRP/USD', 'SUI/USD', 'APT/USD', 'DOT/USD', 'ALGO/USD', 'ARB/USD', 'OP/USD']
+🔍 Debug: Fetching OHLCV for BTC/USD - 100 rows
+📊 BTC/USD | Recent High: 97109.8, Current Price: 96999.0
+📊 BTC/USD | Avg Volume: 10.539719985000001, Current Volume: 0.40873682
+🔍 Debug: Fetching OHLCV for ETH/USD - 100 rows
+📊 ETH/USD | Recent High: 2685.97, Current Price: 2672.63
+📊 ETH/USD | Avg Volume: 291.720139745, Current Volume: 6.617465
+🔍 Debug: Fetching OHLCV for SOL/USD - 100 rows
+📊 SOL/USD | Recent High: 189.38, Current Price: 188.08
+📊 SOL/USD | Avg Volume: 6740.922293005, Current Volume: 1066.7789789
+🔍 Debug: Fetching OHLCV for ADA/USD - 100 rows
+📊 ADA/USD | Recent High: 0.772327, Current Price: 0.772423
+📊 ADA/USD | Avg Volume: 94950.96882813, Current Volume: 5675.22363954
+🔍 Debug: Fetching OHLCV for XRP/USD - 100 rows
+📊 XRP/USD | Recent High: 2.72981, Current Price: 2.7492
+📊 XRP/USD | Avg Volume: 1170718.403450405, Current Volume: 162718.41567658
+🔍 Debug: Fetching OHLCV for SUI/USD - 100 rows
+📊 SUI/USD | Recent High: 3.2925, Current Price: 3.2774
+📊 SUI/USD | Avg Volume: 384819.055225, Current Volume: 25307.14149
+🔍 Debug: Fetching OHLCV for APT/USD - 100 rows
+📊 APT/USD | Recent High: 5.8331, Current Price: 5.8035
+📊 APT/USD | Avg Volume: 183.390006825, Current Volume: 13.87979156
+🔍 Debug: Fetching OHLCV for DOT/USD - 100 rows
+📊 DOT/USD | Recent High: 4.8995, Current Price: 4.891
+📊 DOT/USD | Avg Volume: 6293.006531, Current Volume: 656.94139334
+🔍 Debug: Fetching OHLCV for ALGO/USD - 100 rows
+📊 ALGO/USD | Recent High: 0.27703, Current Price: 0.27636
+📊 ALGO/USD | Avg Volume: 66331.260603875, Current Volume: 58661.97669727
+🔍 Debug: Fetching OHLCV for ARB/USD - 100 rows
+📊 ARB/USD | Recent High: 0.4787, Current Price: 0.4756
+📊 ARB/USD | Avg Volume: 3577.862625, Current Volume: 222.46354
+🔍 Debug: Fetching OHLCV for OP/USD - 100 rows
+📊 OP/USD | Recent High: 1.1129, Current Price: 1.1085
+📊 OP/USD | Avg Volume: 1677.96992, Current Volume: 25.0
