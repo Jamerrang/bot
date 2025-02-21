@@ -1,4 +1,3 @@
-cat > ~/Documents/kraken_test.py << 'EOF'
 import os
 import time
 import ccxt
@@ -194,3 +193,4 @@ def main():
 # ✅ Run Script
 if __name__ == "__main__":
     main()
+
