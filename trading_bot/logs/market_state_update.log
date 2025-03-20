@@ -1,0 +1,47 @@
+🚀 Market state update started on Tue 18 Mar 2025 20:44:28 GMT
+✅ Today's entry removed. Ready dataset saved as: ~/Documents/trading_bot/datasets/market_state_ready.csv
+✅ Market state updated and appended successfully.
+✅ Market state updated successfully on Tue 18 Mar 2025 20:44:28 GMT
+🚀 Market state update started on Wed Mar 19 00:05:00 GMT 2025
+✅ Today's entry removed. Ready dataset saved as: ~/Documents/trading_bot/datasets/market_state_ready.csv
+✅ Market state updated and appended successfully.
+✅ Market state updated successfully on Wed Mar 19 00:05:01 GMT 2025
+zsh: command not found: 5
+🚀 Market state update started on Wed 19 Mar 2025 18:47:23 GMT
+✅ Binance data available.
+✅ Market state updated successfully on Wed 19 Mar 2025 18:47:26 GMT
+🚀 Market state update started on Wed 19 Mar 2025 18:50:39 GMT
+✅ Binance data available.
+✅ Market state updated successfully on Wed 19 Mar 2025 18:50:43 GMT
+🚀 Market state update started on Wed 19 Mar 2025 21:01:25 GMT
+✅ Binance data available.
+✅ Market state updated successfully on Wed 19 Mar 2025 21:01:28 GMT
+🚀 Market state update started on Thu Mar 20 00:05:01 GMT 2025
+🚀 Market state update started on Thu Mar 20 00:05:01 GMT 2025
+✅ Binance data available.
+✅ Binance data available.
+✅ Removed today's entry (2025-03-20). Ready dataset saved.
+✅ Market state updated and appended successfully.
+/Users/jameserskine/Documents/trading_bot/scripts/recompute_indicators.py:31: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
+  df.fillna(method='ffill', inplace=True)
+/Users/jameserskine/Documents/trading_bot/scripts/recompute_indicators.py:32: FutureWarning: DataFrame.fillna with 'method' is deprecated and will raise in a future version. Use obj.ffill() or obj.bfill() instead.
+  df.fillna(method='bfill', inplace=True)
+✅ Indicators recomputed and dataset updated.
+✅ Market state updated successfully on Thu Mar 20 00:05:07 GMT 2025
+✅ Market state updated successfully on Thu Mar 20 00:05:07 GMT 2025
+🚀 Market state update started on Thu 20 Mar 2025 15:45:33 GMT
+✅ Binance data available.
+❌ ERROR: Market state for 2025-03-20 is missing! Re-running update...
+✅ Market state updated successfully on Thu 20 Mar 2025 15:45:36 GMT
+🚀 Market state update started on Thu 20 Mar 2025 18:46:05 GMT
+✅ Binance data available.
+❌ ERROR: Market state for 2025-03-20 is missing! Re-running update...
+✅ Market state updated successfully on Thu 20 Mar 2025 18:46:09 GMT
+🚀 Market state update started on Thu 20 Mar 2025 20:27:25 GMT
+✅ Binance data available.
+❌ ERROR: Market state for 2025-03-20 is missing! Re-running update...
+✅ Market state updated successfully on Thu 20 Mar 2025 20:27:34 GMT
+🚀 Market state update started on Thu 20 Mar 2025 20:32:34 GMT
+✅ Binance data available.
+❌ ERROR: Market state for 2025-03-20 is missing! Re-running update...
+✅ Market state updated successfully on Thu 20 Mar 2025 20:32:40 GMT

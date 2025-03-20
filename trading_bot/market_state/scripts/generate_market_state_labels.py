@@ -60,7 +60,7 @@ def classify_market_state(df):
     
     # Reclassify Unknown states based on previous market trends
     df['Market_State'] = df['Market_State'].replace('Unknown', np.nan)
-    df['Market_State'].fillna(method='ffill', inplace=True)
+    df['Market_State'] = df['Market_State'].ffill()
 
     return df
 
